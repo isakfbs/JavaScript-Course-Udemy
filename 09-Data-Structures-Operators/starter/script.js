@@ -45,6 +45,11 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(...otherIngredients);
+  },
 };
 
 const arr = [2, 3, 4];
@@ -162,3 +167,33 @@ console.log(newRestaurant);
 const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy);
+
+//106. Rest Pattern and Parameters
+
+const [e, w, ...others] = [1, 2, 3, 4, 5];
+console.log(e, w, others);
+
+//real life example
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+//Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+//2) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+const xarr = [2, 3, 5];
+add(...xarr);
+
+restaurant.orderPizza('Mushrooms', 'Mozzarela', 'Olives');
