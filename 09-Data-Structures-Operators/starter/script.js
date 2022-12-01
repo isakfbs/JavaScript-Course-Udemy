@@ -197,3 +197,19 @@ const xarr = [2, 3, 5];
 add(...xarr);
 
 restaurant.orderPizza('Mushrooms', 'Mozzarela', 'Olives');
+
+//Short circuiting (&& and ||)
+console.log('----- Or -----');
+
+console.log(3 || 'Jonas');
+
+restaurant.numGuests = 20;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+console.log('---- AND ----');
+console.log(0 && 'Jonas');
+console.log('hello' && 23 && null && true);
+
+//Pratical example
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
